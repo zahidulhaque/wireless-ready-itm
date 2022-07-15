@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: itm
+  namespace: {{ .Values.global.namespace }}
+spec:
+  to:
+    kind: Service
+    name: {{ include "itm.fullname" . }}
+  port:
+    targetPort: 8000
